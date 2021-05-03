@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import AppNavbar from './components/Layout/Navbar';
+import { SingleUploader, MultiUploader } from './components/Uploaders/Uploaders';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AppNavbar />
+      <div className="container pt-5">
+        <div className="row">
+          <div className="col-md-8 col-sm-12 mx-auto">
+            <div className="card">
+              <div className="card-header">
+                <h3 className="text-primary font-weight-bold">
+                  Upload Your Files Here
+                  </h3>
+              </div>
+              <div className="card-body">
+                <div className="row">
+                  <div className="col-12">
+                    < SingleUploader
+                      uploadUrl="images/single-upload"
+                      label="Single File Upload"
+                      id="single-uploder"
+                    /> 
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-12">
+                    <MultiUploader
+                      uploadUrl="images/multi-upload"
+                      label="Upload Multiple Images"
+                      id="multi-uploader"
+                    /> 
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
